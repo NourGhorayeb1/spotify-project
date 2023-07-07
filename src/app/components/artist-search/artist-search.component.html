@@ -1,0 +1,19 @@
+<div class="artist-search">
+    <h2>Artist Search</h2>
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search for artists">
+
+    <button (click)="searchArtists()" type="submit" class="search-button">Search</button>
+    <div class="artist-list" *ngIf="artists.length > 0">
+        <div class="artist-item" *ngFor="let artist of artists">
+            <div class="artist-image">
+                <img [src]="artist.images[0]?.url" alt="Artist Image">
+            </div>
+            <div class="artist-details">
+                <h3>{{ artist.name }}</h3>
+                <p>Popularity: {{ artist.popularity }}</p>
+                <p>Followers: {{ artist.followers.total }}</p>
+                <button (click)="viewAlbums(artist.id)">View Albums</button>
+            </div>
+        </div>
+    </div>
+</div>
