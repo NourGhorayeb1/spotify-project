@@ -1,0 +1,59 @@
+<!-- <p>register-form works!</p> -->
+<form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+    <h2>Register Artist</h2>
+  
+    <div>
+      <label>First Name*</label>
+      <input type="text" formControlName="firstName" required minlength="3">
+    </div>
+  
+    <div>
+      <label>Last Name*</label>
+      <input type="text" formControlName="lastName" required minlength="3">
+    </div>
+  
+    <div>
+      <label>Date of Birth*</label>
+      <input type="date" formControlName="dateOfBirth" required>
+    </div>
+  
+    <div>
+      <label>Email*</label>
+      <input type="email" formControlName="email" required>
+    </div>
+  
+    <div>
+      <label>Phone Number*</label>
+      <input type="text" formControlName="phoneNumber" required pattern="[0-9]{8}">
+    </div>
+  
+    <div>
+      <label>Profile Picture*</label>
+      <input type="file" formControlName="profilePicture" required accept="image/*">
+    </div>
+  
+    <div>
+      <label>Stage Name</label>
+      <input type="text" formControlName="stageName">
+    </div>
+  
+    <div>
+      <label>Artist Backstory</label>
+      <textarea formControlName="backstory"></textarea>
+    </div>
+  
+    <div>
+      <label>Starting Date</label>
+      <input type="date" formControlName="startingDate">
+    </div>
+  
+    <div>
+      <label>Albums</label>
+      <input type="file" formControlName="albums" multiple accept="image/*">
+    </div>
+  
+    <div>
+      <button type="submit">Register</button>
+    </div>
+  </form>
+  

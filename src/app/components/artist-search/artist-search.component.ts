@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import SpotifyWebApi from 'spotify-web-api-js';
 import { SpotifyService } from 'src/app/spotify.service';
 
@@ -12,7 +14,7 @@ export class ArtistSearchComponent implements OnInit {
   searchQuery: string = '';
   artists: any[] = [];
 
-  constructor(private spotifyService: SpotifyService) {
+  constructor(private spotifyService: SpotifyService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -20,15 +22,12 @@ export class ArtistSearchComponent implements OnInit {
   }
 
   searchArtists() {
-
     const accessToken = localStorage.getItem('access_token');
-
-    // this.spotifyService.getQuery("hello");
-
     if (accessToken && this.searchQuery.length > 0) {
       this.spotifyService.searchArtists(this.searchQuery, accessToken)
         .then((response: any) => {
           this.artists = response.artists.items;
+          console.log(this.artists)
         })
         .catch((error: any) => {
           console.error('Error searching artists:', error);
@@ -36,10 +35,9 @@ export class ArtistSearchComponent implements OnInit {
     } else {
       this.artists = [];
     }
-
   }
 
-  viewAlbums(artistId: string) {
-
+  addNewArtist() {
+    this.router.navigate(['/add-new-artist']);
   }
 }

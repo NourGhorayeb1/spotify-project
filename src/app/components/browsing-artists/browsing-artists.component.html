@@ -1,0 +1,33 @@
+<!-- <p>browsing-artists works!</p> -->
+<!-- <div class="artist-list" *ngIf="artists.length > 0">
+    <div *ngFor="let artist of artists"> 
+        <div class="artist-image">
+            <img [src]="artist.images[0]?.url" alt="Artist Image">
+        </div>
+        <div class="artist-details">
+            <h3>{{ artist.name }}</h3>
+            <p>Popularity: {{ artist.popularity }}</p>
+            <p>Followers: {{ artist.followers.total }}</p>
+            <button (click)="viewAlbums(artist.id)">View Albums</button>
+        </div>
+    </div>
+</div> -->
+
+<div class="artist-list" *ngIf="artists.length > 0">
+    <div *ngFor="let artist of artists"> 
+      <div class="artist-image">
+        <img [src]="artist.images[0]?.url" alt="Artist Image">
+      </div>
+      <div class="artist-details">
+        <h3>{{ artist.name }}</h3>
+        <div class="star-rating">
+          <ng-container *ngFor="let star of getStarRating(artist.popularity)">
+            <mat-icon>star</mat-icon>
+          </ng-container>
+        </div>
+        <p>Followers: {{ artist.followers.total }}</p>
+        <button (click)="viewAlbums(artist.id)">View Albums</button>
+      </div>
+    </div>
+  </div>
+  
