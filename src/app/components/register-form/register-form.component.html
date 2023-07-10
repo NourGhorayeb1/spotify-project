@@ -1,59 +1,109 @@
-<!-- <p>register-form works!</p> -->
 <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
-    <h2>Register Artist</h2>
-  
-    <div>
-      <label>First Name*</label>
-      <input type="text" formControlName="firstName" required minlength="3">
+  <h2>Register Artist</h2>
+
+  <div>
+    <label>First Name*</label>
+    <input type="text" formControlName="firstName" [required]="true" minlength="3">
+    <div
+      *ngIf="registrationForm.get('firstName')?.invalid && (registrationForm.get('firstName')?.dirty || registrationForm.get('firstName')?.touched)">
+      <div class="error-message" *ngIf="registrationForm.get('firstName')?.hasError('required')">
+        First Name is required.
+      </div>
+      <div class="error-message" *ngIf="registrationForm.get('firstName')?.hasError('minlength')">
+        First Name must be at least 3 characters long.
+      </div>
     </div>
-  
-    <div>
-      <label>Last Name*</label>
-      <input type="text" formControlName="lastName" required minlength="3">
+  </div>
+
+  <div>
+    <label>Last Name*</label>
+    <input type="text" formControlName="lastName" [required]="true" minlength="3">
+    <div
+      *ngIf="registrationForm.get('lastName')?.invalid && (registrationForm.get('lastName')?.dirty || registrationForm.get('lastName')?.touched)">
+      <div class="error-message" *ngIf="registrationForm.get('lastName')?.hasError('required')">
+        Last Name is required.
+      </div>
+      <div class="error-message" *ngIf="registrationForm.get('lastName')?.hasError('minlength')">
+        Last Name must be at least 3 characters long.
+      </div>
     </div>
-  
-    <div>
-      <label>Date of Birth*</label>
-      <input type="date" formControlName="dateOfBirth" required>
+  </div>
+
+  <div>
+    <label>Date of Birth*</label>
+    <input type="date" formControlName="dateOfBirth" [required]="true">
+    <div class="error-message"
+      *ngIf="registrationForm.get('dateOfBirth')?.invalid && (registrationForm.get('dateOfBirth')?.dirty || registrationForm.get('dateOfBirth')?.touched)">
+      <div *ngIf="registrationForm.get('dateOfBirth')?.hasError('required')">
+        Date of Birth is required.
+      </div>
     </div>
-  
-    <div>
-      <label>Email*</label>
-      <input type="email" formControlName="email" required>
+  </div>
+
+  <div>
+    <label>Email*</label>
+    <input type="email" formControlName="email" [required]="true" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+    <div class="error-message"
+      *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)">
+      <div *ngIf="registrationForm.get('email')?.hasError('required')">
+        Email is required.
+      </div>
+      <div *ngIf="registrationForm.get('email')?.hasError('pattern')">
+        Invalid email format.
+      </div>
     </div>
-  
-    <div>
-      <label>Phone Number*</label>
-      <input type="text" formControlName="phoneNumber" required pattern="[0-9]{8}">
+  </div>
+
+  <div>
+    <label>Phone Number*</label>
+    <input type="text" formControlName="phoneNumber" [required]="true" pattern="[0-9]{8}">
+    <div class="error-message"
+      *ngIf="registrationForm.get('phoneNumber')?.invalid && (registrationForm.get('phoneNumber')?.dirty || registrationForm.get('phoneNumber')?.touched)">
+      <div *ngIf="registrationForm.get('phoneNumber')?.hasError('required')">
+        Phone Number is required.
+      </div>
+      <div *ngIf="registrationForm.get('phoneNumber')?.hasError('pattern')">
+        Phone Number must be 8 digits.
+      </div>
     </div>
-  
-    <div>
-      <label>Profile Picture*</label>
-      <input type="file" formControlName="profilePicture" required accept="image/*">
+  </div>
+
+  <div>
+    <label>Profile Picture*</label>
+    <input type="file" formControlName="profilePicture" [required]="true" accept="image/*">
+    <div class="error-message"
+      *ngIf="registrationForm.get('profilePicture')?.invalid && (registrationForm.get('profilePicture')?.dirty || registrationForm.get('profilePicture')?.touched)">
+      <div *ngIf="registrationForm.get('profilePicture')?.hasError('required')">
+        Profile Picture is required.
+      </div>
+      <div *ngIf="registrationForm.get('profilePicture')?.hasError('accept')">
+        Invalid file format. Only image files are allowed.
+      </div>
     </div>
-  
-    <div>
-      <label>Stage Name</label>
-      <input type="text" formControlName="stageName">
-    </div>
-  
-    <div>
-      <label>Artist Backstory</label>
-      <textarea formControlName="backstory"></textarea>
-    </div>
-  
-    <div>
-      <label>Starting Date</label>
-      <input type="date" formControlName="startingDate">
-    </div>
-  
-    <div>
-      <label>Albums</label>
-      <input type="file" formControlName="albums" multiple accept="image/*">
-    </div>
-  
-    <div>
-      <button type="submit">Register</button>
-    </div>
-  </form>
-  
+  </div>
+
+  <div>
+    <label>Stage Name</label>
+    <input type="text" formControlName="stageName">
+  </div>
+
+  <div>
+    <label>Artist Backstory</label>
+    <textarea formControlName="backstory"></textarea>
+  </div>
+
+  <div>
+    <label>Starting Date</label>
+    <input type="date" formControlName="startingDate">
+  </div>
+
+  <div>
+    <label>Albums</label>
+    <input type="file" formControlName="albums" multiple accept="image/*">
+  </div>
+
+  <div>
+    <button type="submit">Register</button>
+  </div>
+
+</form>

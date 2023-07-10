@@ -11,17 +11,22 @@ import { SpotifyService } from 'src/app/spotify.service';
 })
 export class ArtistSearchComponent implements OnInit {
   spotifyApi: any = new SpotifyWebApi();
-  searchQuery: string = '';
+  searchQuery: any = '';
   artists: any[] = [];
+  browsing_artists: boolean = false;
+  registration_form: boolean = false;
 
   constructor(private spotifyService: SpotifyService, private router: Router) {
   }
 
   ngOnInit(): void {
-
+    this.browsing_artists = false;
+    this.registration_form = false;
   }
 
   searchArtists() {
+    this.browsing_artists = true;
+    this.registration_form = false;
     const accessToken = localStorage.getItem('access_token');
     if (accessToken && this.searchQuery.length > 0) {
       this.spotifyService.searchArtists(this.searchQuery, accessToken)
@@ -38,6 +43,9 @@ export class ArtistSearchComponent implements OnInit {
   }
 
   addNewArtist() {
-    this.router.navigate(['/add-new-artist']);
+    // this.router.navigate(['/add-new-artist']);
+    this.searchQuery = "";
+    this.browsing_artists = false;
+    this.registration_form = true;
   }
 }

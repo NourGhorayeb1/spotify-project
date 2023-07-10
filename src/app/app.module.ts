@@ -4,10 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDividerModule, MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material';
+import {
+  FormsModule,
+} from '@angular/forms';
+import { MatCardModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
+
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { CallbackComponent } from './components/callback/callback.component';
@@ -19,8 +24,8 @@ const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'callback', component: CallbackComponent },
   { path: 'artist-search', component: ArtistSearchComponent },
-  { path: 'browsing-artists/:artistId', component: BrowsingArtistsComponent },
-  { path: 'add-new-artist', component: RegisterFormComponent }
+  // { path: 'browsing-artists/:artistId', component: BrowsingArtistsComponent },
+  // { path: 'add-new-artist', component: RegisterFormComponent }
 ]
 @NgModule({
   declarations: [
@@ -35,8 +40,14 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+
     ReactiveFormsModule,
     MatIconModule,
+    MatCardModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     HttpClientModule,
     RouterModule.forRoot(
       appRoutes,

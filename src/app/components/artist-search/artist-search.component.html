@@ -1,23 +1,14 @@
-<div class="artist-search">
-    <h2>Artist Search</h2>
-    <input type="text" [(ngModel)]="searchQuery" placeholder="Search for artists">
+<div>
+    <div  class="artist-search">
+        <h2>Artist Search</h2>
+        <input type="text" [(ngModel)]="searchQuery" placeholder="Search for artists">
+    
+        <button (click)="searchArtists()" type="submit" class="search-button">Search</button>
+        <button (click)="addNewArtist()" type="submit" class="search-button">Add New Artist</button>
+    
+    </div>
+    
+    <div *ngIf="browsing_artists"> <app-browsing-artists [artists]= "artists"></app-browsing-artists></div>
+    <div *ngIf="registration_form"> <app-register-form ></app-register-form></div>
 
-    <button (click)="searchArtists()" type="submit" class="search-button">Search</button>
-    <button (click)="addNewArtist()" type="submit" class="search-button">Add New Artist</button>
-
-    <!-- <div class="artist-list" *ngIf="artists.length > 0">
-        <div class="artist-item" *ngFor="let artist of artists" (click)="viewArtist(artist.id)"> 
-            <div class="artist-image">
-                <img [src]="artist.images[0]?.url" alt="Artist Image">
-            </div>
-            <div class="artist-details">
-                <h3>{{ artist.name }}</h3>
-                <p>Popularity: {{ artist.popularity }}</p>
-                <p>Followers: {{ artist.followers.total }}</p>
-                <button (click)="viewAlbums(artist.id)">View Albums</button>
-            </div>
-        </div>
-    </div> -->
-
-    <app-browsing-artists [artists]= "artists"></app-browsing-artists>
 </div>

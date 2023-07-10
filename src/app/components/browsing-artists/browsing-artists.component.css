@@ -1,0 +1,37 @@
+
+
+.artist-list  {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+}
+
+.artist-card {
+  @apply bg-white rounded-md shadow-md p-4;
+}
+
+.artist-image {
+  /* @apply aspect-w-3 aspect-h-2; */
+}
+
+.artist-image img {
+  @apply object-cover rounded-md;
+}
+
+.artist-name {
+  @apply text-xl font-bold;
+}
+
+.artist-details {
+  @apply mt-2;
+}
+
+.star-rating {
+  @apply flex items-center mt-2;
+}
+
+.followers {
+  @apply mt-1;
+}
+
+.view-albums-button {
+  @apply mt-4;
+}
