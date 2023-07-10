@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  spotifyClientId: "clientID"
+  spotifyClientId: "SPOTIFY_CLIENT_ID",
+  redirectUrl: "REDIRECT_URL"
 };
 
 /*

@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## GENERAL STEPS AFTER CLONING THE PROJECT
-Open the src/environment/environment.ts file and add your "SpotifyClientId".
+Open the src/environment/environment.ts file and add your "SpotifyClientId" and your "RedirectUrl".
 Open a terminal or command prompt.
 Navigate to the project directory using the `cd` command.
 Run `npm install` to install all dependencies.

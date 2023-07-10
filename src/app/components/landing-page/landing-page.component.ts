@@ -23,7 +23,7 @@ export class LandingPageComponent implements OnInit {
 
   loginWithSpotify(): void {
     const clientId = environment.spotifyClientId;
-    const redirectUri = 'http://localhost:4200/callback';
+    const redirectUri = environment.redirectUrl;
     const scopes = [
       'user-read-private',
       'user-read-email',
