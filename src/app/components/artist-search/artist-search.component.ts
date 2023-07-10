@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import SpotifyWebApi from 'spotify-web-api-js';
 import { SpotifyService } from 'src/app/spotify.service';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-artist-search',
@@ -13,26 +15,28 @@ export class ArtistSearchComponent implements OnInit {
   spotifyApi: any = new SpotifyWebApi();
   searchQuery: any = '';
   artists: any[] = [];
-  browsing_artists: boolean = false;
-  registration_form: boolean = false;
+
+  private searchTerms = new Subject<string>();
 
   constructor(private spotifyService: SpotifyService, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.browsing_artists = false;
-    this.registration_form = false;
+    this.searchTerms.pipe(
+      debounceTime(300),
+      distinctUntilChanged()
+    ).subscribe((term: string) => {
+      this.searchArtists(term);
+    });
   }
 
-  searchArtists() {
-    this.browsing_artists = true;
-    this.registration_form = false;
+  searchArtists(query: string) {
     const accessToken = localStorage.getItem('access_token');
-    if (accessToken && this.searchQuery.length > 0) {
-      this.spotifyService.searchArtists(this.searchQuery, accessToken)
+
+    if (accessToken && query.length > 0) {
+      this.spotifyService.searchArtists(query, accessToken)
         .then((response: any) => {
           this.artists = response.artists.items;
-          console.log(this.artists)
         })
         .catch((error: any) => {
           console.error('Error searching artists:', error);
@@ -42,10 +46,7 @@ export class ArtistSearchComponent implements OnInit {
     }
   }
 
-  addNewArtist() {
-    // this.router.navigate(['/add-new-artist']);
-    this.searchQuery = "";
-    this.browsing_artists = false;
-    this.registration_form = true;
+  searchInputChange(query: string) {
+    this.searchTerms.next(query);
   }
 }
