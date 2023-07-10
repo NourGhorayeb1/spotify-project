@@ -25,3 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## GENERAL STEPS AFTER CLONING THE PROJECT
+Open the src/environment/environment.ts file and add your "SpotifyClientId".
+Open a terminal or command prompt.
+Navigate to the project directory using the `cd` command.
+Run `npm install` to install all dependencies.
