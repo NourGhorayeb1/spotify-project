@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { createState, PropsFactory, StateOf } from '@ngneat/elf';
+// interface Artist {
+//   firstName: string;
+//   lastName: string;
+//   // Add other fields as needed
+// }
 
 @Component({
   selector: 'app-register-form',
@@ -8,6 +14,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterFormComponent implements OnInit {
   registrationForm!: FormGroup;
+  // artistState: StateOf<Artist[]> = createState<Artist[]>([]);
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -30,7 +37,7 @@ export class RegisterFormComponent implements OnInit {
     if (this.registrationForm.valid) {
       console.log(this.registrationForm.value);
     } else {
-      // Handle form validation errors
+      console.log(this.registrationForm.status) // INVALID
     }
   }
 }
