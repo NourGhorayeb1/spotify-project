@@ -7,12 +7,14 @@
       <h3>{{ artist.name }}</h3>
       <div class="star-rating">
         <ng-container *ngFor="let star of getStarRating(artist.popularity)">
-          <!-- <mat-icon></mat-icon> -->
-          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+          <mat-icon aria-hidden="false" aria-label="Star" fontSet="material-icons">
+            {{ star ? 'star' : 'star_border' }}
+          </mat-icon>
         </ng-container>
       </div>
       <p>Followers: {{ artist.followers.total }}</p>
-      <button mat-raised-button color="primary" class="view-albums-button" (click)="viewAlbums(artist.id)">View Albums</button>
+      <button mat-raised-button color="primary" class="view-albums-button" (click)="viewAlbums(artist.id)">View
+        Albums</button>
     </div>
   </mat-card>
 </div>
