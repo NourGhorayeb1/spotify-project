@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { createState, PropsFactory, StateOf } from '@ngneat/elf';
-// interface Artist {
-//   firstName: string;
-//   lastName: string;
-//   // Add other fields as needed
-// }
 
 @Component({
   selector: 'app-register-form',
@@ -14,7 +9,6 @@ import { createState, PropsFactory, StateOf } from '@ngneat/elf';
 })
 export class RegisterFormComponent implements OnInit {
   registrationForm!: FormGroup;
-  // artistState: StateOf<Artist[]> = createState<Artist[]>([]);
 
   constructor(private formBuilder: FormBuilder) { }
 

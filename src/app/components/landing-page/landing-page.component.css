@@ -1,36 +1,46 @@
 .landing-page {
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100vh; */
+    @apply flex items-center justify-center h-screen;
   }
   
   .hero-section {
-    text-align: center;
+    /* text-align: center; */
+    @apply text-center;
   }
   
   .hero-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    /* font-size: 2.5rem;
+    margin-bottom: 1rem; */
+
+    @apply text-3xl mb-4;
   }
   
   .hero-section p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    /* font-size: 1.2rem;
+    margin-bottom: 2rem; */
+
+    @apply text-lg mb-8;
   }
   
   .spotify-button {
-    padding: 1rem 2rem;
+    /* padding: 1rem 2rem;
     font-size: 1.2rem;
     border: none;
     border-radius: 4px;
     background-color: #1db954;
     color: #ffffff;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; */
+
+    @apply px-4 py-2 text-lg bg-green-500 text-white rounded-md transition-colors duration-300;
   }
   
   .spotify-button:hover {
-    background-color: #1ed760;
+    /* background-color: #1ed760; */
+
+    @applty bg-green-600;
   }
   

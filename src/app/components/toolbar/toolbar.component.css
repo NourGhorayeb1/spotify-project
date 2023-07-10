@@ -1,6 +1,8 @@
 .left-items {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
+
+  @apply flex items-center;
 }
 
 .right-items {
@@ -10,14 +12,20 @@
 }
 
 .spotify-icon {
-  margin-right: 8px;
+  /* margin-right: 8px; */
+
+  @apply mr-4 ml-4;
 }
 
 .app-name {
-  font-weight: bold;
-  margin-right: 16px;
+  /* font-weight: bold;
+  margin-right: 16px; */
+
+  @apply font-bold mr-2;
 }
 
 .toolbar-button {
-  margin-left: 8px;
+  /* margin-left: 8px; */
+
+  @apply ml-2;
 }
