@@ -1,14 +1,14 @@
 <div>
     <div  class="artist-search">
-        <h2>Artist Search</h2>
+        <!-- <h2>Artist Search</h2> -->
         <input type="text" [(ngModel)]="searchQuery" placeholder="Search for artists">
     
         <button (click)="searchArtists()" type="submit" class="search-button">Search</button>
-        <button (click)="addNewArtist()" type="submit" class="search-button">Add New Artist</button>
+        <!-- <button (click)="addNewArtist()" type="submit" class="search-button">Add New Artist</button> -->
     
     </div>
     
     <div *ngIf="browsing_artists"> <app-browsing-artists [artists]= "artists"></app-browsing-artists></div>
-    <div *ngIf="registration_form"> <app-register-form ></app-register-form></div>
+    <!-- <div *ngIf="registration_form"> <app-register-form ></app-register-form></div> -->
 
 </div>

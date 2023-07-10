@@ -1,0 +1,23 @@
+.left-items {
+  display: flex;
+  align-items: center;
+}
+
+.right-items {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.spotify-icon {
+  margin-right: 8px;
+}
+
+.app-name {
+  font-weight: bold;
+  margin-right: 16px;
+}
+
+.toolbar-button {
+  margin-left: 8px;
+}

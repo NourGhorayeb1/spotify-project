@@ -21,7 +21,7 @@ export class CallbackComponent implements OnInit {
 
     // console.log(localStorage);
 
-    this.router.navigate(['/artist-search']);
+    this.router.navigate(['/home']);
   }
 
   private extractTokenFromFragment(fragment: string): string {

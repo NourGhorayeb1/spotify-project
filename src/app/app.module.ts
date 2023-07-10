@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatDividerModule, MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { MatDividerModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatToolbarModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import {
@@ -19,13 +19,16 @@ import { CallbackComponent } from './components/callback/callback.component';
 import { ArtistSearchComponent } from './components/artist-search/artist-search.component';
 import { BrowsingArtistsComponent } from './components/browsing-artists/browsing-artists.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { HomeComponent } from './components/home/home.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'callback', component: CallbackComponent },
   { path: 'artist-search', component: ArtistSearchComponent },
-  // { path: 'browsing-artists/:artistId', component: BrowsingArtistsComponent },
-  // { path: 'add-new-artist', component: RegisterFormComponent }
+  { path: 'browsing-artists/:artistId', component: BrowsingArtistsComponent },
+  { path: 'add-new-artist', component: RegisterFormComponent }
 ]
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ const appRoutes: Routes = [
     CallbackComponent,
     ArtistSearchComponent,
     BrowsingArtistsComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    ToolbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatIconModule,
     MatCardModule,
+    MatToolbarModule,
     MatDividerModule,
     MatIconModule,
     MatFormFieldModule,

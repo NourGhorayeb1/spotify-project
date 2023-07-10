@@ -53,7 +53,7 @@ export class LandingPageComponent implements OnInit {
 
   handleSuccessfulLogin(): void {
     // REDIRECT TO THE ARTIST SEARCH PAGE
-    this.router.navigate(['/artist-search']);
+    this.router.navigate(['/home']);
   }
 
 }

@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <div class="left-items">
+        <mat-icon class="spotify-icon">music_note</mat-icon>
+        <button mat-icon-button class="app-name-button" (click)="navigateHome()">
+            NgMusicApp
+        </button>
+    </div>
+    <div class="right-items">
+        <button mat-icon-button class="toolbar-button" (click)="searchArtist()">
+            <mat-icon>search</mat-icon>
+        </button>
+        <button mat-icon-button class="toolbar-button" (click)="addNewArtist()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</mat-toolbar>
